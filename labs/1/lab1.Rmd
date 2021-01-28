@@ -1,0 +1,147 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+We can write notebooks using a couple different IDEs, popular being 
+
+1. [jupyter](https://jupyter.org/install) which is a bit more advanced and requires installing [anaconda](https://www.anaconda.com/)
+
+2. [rstudio](https://rstudio.com/products/rstudio/)
+
+either can be used to write code in [R](https://www.r-project.org/)
+
+```{r}
+print('hello world')
+```
+
+We can use R as a calculator
+
+```{r}
+1+1
+```
+
+```{r}
+1+2*5
+```
+
+there are also some built-in constants in R
+
+```{r}
+pi
+exp(1)
+```
+
+there are also special infinite values
+
+```{r}
+1/0
+-1/0
+```
+
+```{r}
+0/0
+```
+
+to denote nothing we have
+
+```{r}
+NULL
+```
+
+to denote a missing value
+
+```{r}
+NA
+```
+
+# Variable assignment and simple objects
+
+```{r}
+x = 1
+y <- 2
+3 -> z
+x;y;z
+print(x)
+```
+
+# Vectors
+
+```{r}
+x = c(5,3,7)
+x
+```
+
+```{r}
+x[1]
+```
+
+```{r}
+x[c(-1,-2)]
+```
+
+we can make a vector out of anything
+
+```{r}
+truths <- c(TRUE, FALSE, TRUE)
+```
+
+```{r}
+x[truths]
+```
+
+we can make a matrix using the ``matrix`` function
+
+```{r}
+1:25
+X <- matrix(1:25,nrow=5,byrow=TRUE)
+X
+```
+
+```{r}
+Y <- array(25:49,c(5,5))
+Y
+```
+
+matrix multiplication is done with the operator ``%*%``
+
+```{r}
+X %*% Y
+```
+
+# Flow Control
+
+```{r}
+A = FALSE
+if(A){
+    print("TRUE")
+} else{
+    print("FALSE")
+}
+```
+
+```{r}
+for(i in 1:10){
+    print(i)
+}
+```
+
+```{r}
+i = 1
+while( i <= 10){
+    print(i)
+    i = i + 1
+}
+```
+
+there is a good tutorial by Dr. Leemis [here](http://www.math.wm.edu/~leemis/r.pdf)
