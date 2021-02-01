@@ -1,0 +1,106 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 2 - Linear Regression
+## Lecture 2
+
+```{r}
+#install.packages('MASS')
+```
+
+```{r}
+library('MASS')
+```
+
+```{r}
+data(Boston)
+```
+
+```{r}
+dim(Boston)
+```
+
+```{r}
+Boston[1:5,]
+```
+
+```{r}
+?Boston
+```
+
+let's fit a regression to predict the median house value from the crime rate 
+
+```{r}
+plot(log(Boston$crim),log(Boston$medv))
+```
+
+`medv~crim` basically says `medv = beta0 + beta1*crim`
+
+```{r}
+mod = lm(medv~crim,data=Boston)
+mod
+```
+
+```{r}
+summary(mod)
+```
+
+```{r}
+mod$coef
+```
+
+```{r}
+plot(Boston$crim,Boston$medv)
+abline(coef=mod$coef)
+```
+
+```{r}
+X = array(Boston$crim,c(506,1))
+X = cbind(1,X)
+X
+```
+
+```{r}
+y = array(Boston$medv,c(506,1))
+```
+
+```{r}
+beta_hat = ginv(t(X)%*%X)%*%t(X)%*%y
+```
+
+```{r}
+beta_hat
+```
+
+```{r}
+y_hat_mod = predict(mod)
+head(y_hat_mod)
+```
+
+```{r}
+y_hat = X%*%beta_hat
+```
+
+```{r}
+head(y_hat)
+```
+
+```{r}
+plot(Boston$medv,y_hat)
+```
+
+```{r}
+
+```
