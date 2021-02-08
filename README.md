@@ -29,7 +29,7 @@ lab number | date to watch | lab name | files | video |
 2 | 2-2 | intro to regression | [.ipynb](labs/2/lab2.ipynb) [.Rmd](labs/2/lab2.Rmd) [.R](labs/2/lab2.R) | [lab 2](https://youtu.be/3OrfYTiaJ_0) |
 3 | 2-4 | more regression | [.ipynb](labs/3/lab3.ipynb) [.Rmd](labs/3/lab3.Rmd) [.R](labs/3/lab3.R) | [lab 3](https://youtu.be/zdVYjPFrW0k) |
 4 | 2-9 | KNN | [.ipynb](labs/4/lab4.ipynb) [.Rmd](labs/4/lab4.Rmd) [.R](labs/4/lab4.R) | [lab 4](https://youtu.be/xIUIBeAnq7g) |
-5 | 2-11 | KNN | [.ipynb](labs/5/lab5.ipynb) [.Rmd](labs/5/lab5.Rmd) [.R](labs/5/lab5.R) | [lab 5](https://youtu.be/UaoKIjDGCls) |
+5 | 2-11 | evaluation | [.ipynb](labs/5/lab5.ipynb) [.Rmd](labs/5/lab5.Rmd) [.R](labs/5/lab5.R) | [lab 5](https://youtu.be/UaoKIjDGCls) |
 
 
 ## problem sets
