@@ -1,0 +1,150 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 4 - KNN Regression and Evaluation
+## lecture 4
+
+```{r}
+install.packages('FNN')
+```
+
+# simulation
+
+```{r}
+?runif
+```
+
+```{r}
+x = runif(100,-1,1)
+hist(x)
+```
+
+```{r}
+y = x^2 # f(x) = x^2
+plot(x,y)
+```
+
+```{r}
+e = rnorm(100,0,1/10)
+hist(e)
+```
+
+```{r}
+y = x^2 + e
+plot(x,y)
+```
+
+# using linear regression
+
+```{r}
+mod = lm(y~x) # y = b0 + b1*x
+summary(mod)
+```
+
+```{r}
+plot(x,y)
+abline(coef(mod),col='red')
+lines(x[x_ord],x[x_ord]^2,col='blue')
+dim(model.matrix(mod))
+```
+
+# KNN
+
+```{r}
+library('FNN')
+?knn.reg
+```
+
+```{r}
+X = array(x,c(100,1))
+Y = array(y,c(100,1))
+knn_mod = knn.reg(train=X,y=Y,test=X,k=10)
+```
+
+```{r}
+names(knn_mod)
+```
+
+```{r}
+length(knn_mod$pred) # these are the predictions
+```
+
+```{r}
+plot(x,y)
+x_ord  = order(x)
+lines(x[x_ord],knn_mod$pred[x_ord],col='red')
+lines(x[x_ord],x[x_ord]^2,col='blue')
+```
+
+## k = 3
+
+```{r}
+knn_mod = knn.reg(train=X,y=Y,test=X,k=3)
+plot(x,y)
+lines(x[x_ord],knn_mod$pred[x_ord],col='red')
+lines(x[x_ord],x[x_ord]^2,col='blue')
+```
+
+# k = 1
+
+```{r}
+knn_mod = knn.reg(train=X,y=Y,test=X,k=1)
+plot(x,y)
+lines(x[x_ord],knn_mod$pred[x_ord],col='red')
+lines(x[x_ord],x[x_ord]^2,col='blue')
+```
+
+# k = 100
+
+```{r}
+knn_mod = knn.reg(train=X,y=Y,test=X,k=100)
+plot(x,y)
+lines(x[x_ord],knn_mod$pred[x_ord],col='red')
+lines(x[x_ord],x[x_ord]^2,col='blue')
+```
+
+```{r}
+mean(y)
+```
+
+```{r}
+head(knn_mod$pred)
+```
+
+# k = 25
+
+```{r}
+knn_mod = knn.reg(train=X,y=Y,test=X,k=25)
+plot(x,y)
+lines(x[x_ord],knn_mod$pred[x_ord],col='red')
+lines(x[x_ord],x[x_ord]^2,col='blue')
+```
+
+# Can do we do this with a linear model?
+
+```{r}
+lin_mod = lm(y~I(x^2)) # y = b0+b1x^2
+plot(x,y)
+lines(x[x_ord],predict(lin_mod)[x_ord],col='red')
+lines(x[x_ord],x[x_ord]^2,col='blue')
+```
+
+```{r}
+lin_mod = lm(y~x+I(x^4)) # y = b0+b1x^2
+plot(x,y)
+lines(x[x_ord],predict(lin_mod)[x_ord],col='red')
+lines(x[x_ord],x[x_ord]^2,col='blue')
+dim(model.matrix(lin_mod))
+```

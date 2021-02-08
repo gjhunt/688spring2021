@@ -1,0 +1,136 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: ''
+    name: ''
+---
+
+# Lab 5
+
+
+## lecture 5 
+
+```{python}
+library('MASS')
+data(Boston)
+```
+
+we can build a couple of models
+
+```{python}
+mod1 = lm(medv~crim,data=Boston)
+mod2 = lm(medv~crim+rm,data=Boston)
+mod3 = lm(medv~crim+I(crim^2)+rm,data=Boston)
+```
+
+```{python}
+summary(mod1)$r.squared
+```
+
+```{python}
+summary(mod2)$r.squared
+```
+
+```{python}
+summary(mod3)$r.squared
+```
+
+We should be carebul because we are always going to increase the $R^2$ if I add covariates. (This happens for other metrics too.) This is bad way of choosing which coviariates to include. 
+
+
+# KNN
+
+```{python}
+library('FNN')
+# ?knn.reg
+```
+
+```{python}
+x = array(sort(runif(100,-1,1)),c(100,1))
+head(x)
+```
+
+```{python}
+y = x^2 + rnorm(100,0,1/5)
+```
+
+```{python}
+plot(x,y)
+```
+
+let's split the data into testing and training
+
+```{python}
+train_ss = sample(nrow(x),floor(nrow(x)/2))
+test_ss = setdiff(1:nrow(x),train_ss)
+```
+
+```{python}
+trainx = x[train_ss,,drop=FALSE]
+testx = x[test_ss,,drop=FALSE]
+trainy = y[train_ss,,drop=FALSE]
+testy = y[test_ss,,drop=FALSE]
+
+evaluate = function(pred_x,pred_y,K=10){
+    knn_mod = knn.reg(train=trainx,test=pred_x,y=trainy,k=K)
+    RSS = sum((knn_mod$pred - pred_y)^2)
+    return(RSS)
+}
+```
+
+```{python}
+evaluate(testx,testy)
+```
+
+```{python}
+evaluate(trainx,trainy)
+```
+
+How should we choose $K$?
+
+```{python}
+K_seq = seq(1,46,2)
+K_seq
+```
+
+```{python}
+train_RSSs = sapply(K_seq,function(K)evaluate(trainx,trainy,K=K))
+```
+
+```{python}
+plot(K_seq,train_RSSs)
+```
+
+```{python}
+evaluate(trainx,trainy,1)
+```
+
+```{python}
+evaluate(testx,testy,1)
+```
+
+```{python}
+test_RSSs = sapply(K_seq,function(K)evaluate(testx,testy,K=K))
+plot(K_seq,test_RSSs)
+```
+
+```{python}
+K_hat = K_seq[which.min(test_RSSs)]
+K_hat
+```
+
+```{python}
+best_knn = knn.reg(train=trainx,test=testx,y=trainy,k=K_hat)
+```
+
+```{python}
+plot(testx,testy)
+lines(testx,best_knn$pred,col='red')
+```
