@@ -19,6 +19,8 @@ lecture number | date to watch | lecture name | written notes (.pdf) | video |
 3 | 2-4 | more regression | [lecture 3](lns/lec3.pdf) | [lec3](https://youtu.be/ldW-ZbFcCas) |
 4 | 2-9 | KNN | [lecture 4](lns/lec4.pdf) | [lec4](https://youtu.be/7Tu8J36n5o4) |
 5 | 2-11 | evaluation | [lecture 5](lns/lec5.pdf) | [lec5](https://youtu.be/XCV1eDXR28E) |
+6 | 2-16 | bias-variance tradeoff | [lecture 6](lns/lec6.pdf) | [lec6](https://youtu.be/asTABFpwIzQ) |
+7 | 2-18 | Minimum Risk Regression and Classification | [lecture 7](lns/lec7.pdf) | [lec7](https://youtu.be/XwAbYjpTi7U) |
 
 
 ## labs and videos
@@ -30,6 +32,8 @@ lab number | date to watch | lab name | files | video |
 3 | 2-4 | more regression | [.ipynb](labs/3/lab3.ipynb) [.Rmd](labs/3/lab3.Rmd) [.R](labs/3/lab3.R) | [lab 3](https://youtu.be/zdVYjPFrW0k) |
 4 | 2-9 | KNN | [.ipynb](labs/4/lab4.ipynb) [.Rmd](labs/4/lab4.Rmd) [.R](labs/4/lab4.R) | [lab 4](https://youtu.be/xIUIBeAnq7g) |
 5 | 2-11 | evaluation | [.ipynb](labs/5/lab5.ipynb) [.Rmd](labs/5/lab5.Rmd) [.R](labs/5/lab5.R) | [lab 5](https://youtu.be/UaoKIjDGCls) |
+6 | 2-16 | evaluation | [.ipynb](labs/6/lab6.ipynb) [.Rmd](labs/6/lab6.Rmd) [.R](labs/6/lab6.R) | [lab 6](https://youtu.be/CH9ZP-UoNZk) |
+7 | 2-18 | evaluation | [.ipynb](labs/7/lab7.ipynb) [.Rmd](labs/7/lab7.Rmd) [.R](labs/7/lab7.R) | [lab 7](https://youtu.be/qdZ7qYhkbPY) |
 
 
 ## problem sets

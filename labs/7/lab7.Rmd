@@ -1,0 +1,85 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: ''
+    name: ''
+---
+
+# Lab - KNN Classification
+## Lecture 7 
+
+```{python}
+data(iris)
+```
+
+```{python}
+iris
+```
+
+```{python}
+summary(iris)
+```
+
+```{python}
+library('class')
+```
+
+```{python}
+# ?knn
+```
+
+```{python}
+dset = iris[,c('Species','Sepal.Length','Sepal.Width')]
+head(dset)
+```
+
+```{python}
+set.seed(12093)
+randomized = sample(1:nrow(dset))
+randomized
+```
+
+```{python}
+train_ss = randomized[1:floor(nrow(dset)/3)]
+test_ss = setdiff(1:nrow(dset),train_ss)
+head(train_ss)
+head(test_ss)
+```
+
+```{python}
+trainx = dset[train_ss,-1]
+trainy = dset[train_ss,1]
+testx = dset[test_ss,-1]
+testy = dset[test_ss,1]
+```
+
+### let's build our knn model!
+
+```{python}
+pred_y = knn(train=trainx,testx,cl=trainy,k=5)
+head(pred_y)
+```
+
+```{python}
+table(pred_y)
+```
+
+```{python}
+table(testy)
+```
+
+```{python}
+acc = mean(testy==pred_y)
+acc
+```
+
+```{python}
+
+```
