@@ -32,8 +32,8 @@ lab number | date to watch | lab name | files | video |
 3 | 2-4 | more regression | [.ipynb](labs/3/lab3.ipynb) [.Rmd](labs/3/lab3.Rmd) [.R](labs/3/lab3.R) | [lab 3](https://youtu.be/zdVYjPFrW0k) |
 4 | 2-9 | KNN | [.ipynb](labs/4/lab4.ipynb) [.Rmd](labs/4/lab4.Rmd) [.R](labs/4/lab4.R) | [lab 4](https://youtu.be/xIUIBeAnq7g) |
 5 | 2-11 | evaluation | [.ipynb](labs/5/lab5.ipynb) [.Rmd](labs/5/lab5.Rmd) [.R](labs/5/lab5.R) | [lab 5](https://youtu.be/UaoKIjDGCls) |
-6 | 2-16 | evaluation | [.ipynb](labs/6/lab6.ipynb) [.Rmd](labs/6/lab6.Rmd) [.R](labs/6/lab6.R) | [lab 6](https://youtu.be/CH9ZP-UoNZk) |
-7 | 2-18 | evaluation | [.ipynb](labs/7/lab7.ipynb) [.Rmd](labs/7/lab7.Rmd) [.R](labs/7/lab7.R) | [lab 7](https://youtu.be/qdZ7qYhkbPY) |
+6 | 2-16 | more evaluation | [.ipynb](labs/6/lab6.ipynb) [.Rmd](labs/6/lab6.Rmd) [.R](labs/6/lab6.R) | [lab 6](https://youtu.be/CH9ZP-UoNZk) |
+7 | 2-18 | KNN classification | [.ipynb](labs/7/lab7.ipynb) [.Rmd](labs/7/lab7.Rmd) [.R](labs/7/lab7.R) | [lab 7](https://youtu.be/qdZ7qYhkbPY) |
 
 
 ## problem sets
