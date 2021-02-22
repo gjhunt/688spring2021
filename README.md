@@ -20,7 +20,9 @@ lecture number | date to watch | lecture name | written notes (.pdf) | video |
 4 | 2-9 | KNN | [lecture 4](lns/lec4.pdf) | [lec4](https://youtu.be/7Tu8J36n5o4) |
 5 | 2-11 | evaluation | [lecture 5](lns/lec5.pdf) | [lec5](https://youtu.be/XCV1eDXR28E) |
 6 | 2-16 | bias-variance tradeoff | [lecture 6](lns/lec6.pdf) | [lec6](https://youtu.be/asTABFpwIzQ) |
-7 | 2-18 | Minimum Risk Regression and Classification | [lecture 7](lns/lec7.pdf) | [lec7](https://youtu.be/XwAbYjpTi7U) |
+7 | 2-18 | minimum Risk regression and classification | [lecture 7](lns/lec7.pdf) | [lec7](https://youtu.be/XwAbYjpTi7U) |
+8 | 2-23 | classification | [lecture 8](lns/lec8.pdf) | [lec8](https://youtu.be/1XEeHFv_joM) |
+9 | 2-25 | linear classifiers | [lecture 9](lns/lec9.pdf) | [lec9](https://youtu.be/yMJpAcS5sg4) |
 
 
 ## labs and videos
@@ -34,6 +36,8 @@ lab number | date to watch | lab name | files | video |
 5 | 2-11 | evaluation | [.ipynb](labs/5/lab5.ipynb) [.Rmd](labs/5/lab5.Rmd) [.R](labs/5/lab5.R) | [lab 5](https://youtu.be/UaoKIjDGCls) |
 6 | 2-16 | more evaluation | [.ipynb](labs/6/lab6.ipynb) [.Rmd](labs/6/lab6.Rmd) [.R](labs/6/lab6.R) | [lab 6](https://youtu.be/CH9ZP-UoNZk) |
 7 | 2-18 | KNN classification | [.ipynb](labs/7/lab7.ipynb) [.Rmd](labs/7/lab7.Rmd) [.R](labs/7/lab7.R) | [lab 7](https://youtu.be/qdZ7qYhkbPY) |
+8 | 2-23 | classification | [.ipynb](labs/8/lab8.ipynb) [.Rmd](labs/8/lab8.Rmd) [.R](labs/8/lab8.R) | [lab 8](https://youtu.be/Ro5E56_Mr-s) |
+9 | 2-25 | lda | [.ipynb](labs/9/lab9.ipynb) [.Rmd](labs/9/lab9.Rmd) [.R](labs/9/lab9.R) | [lab 9](https://youtu.be/IYl_VhBXqxk) |
 
 
 ## problem sets
@@ -55,4 +59,4 @@ assignment number | date posted | link | due | corresponding lectures or labs |
 3 | 2-4 | [Supervised Learning in R: Regression CH3](https://learn.datacamp.com/courses/supervised-learning-in-r-regression) | 2-11 | Lab 3 |
 4 | 2-11 | [Supervised Learning in R: Regression CH2](https://learn.datacamp.com/courses/supervised-learning-in-r-regression) | 2-18 | Lab 4-5 |
 5 | 2-11 | [Machine Learning with caret in R: CH1](https://learn.datacamp.com/courses/machine-learning-with-caret-in-r) | 2-25 | Lab 7 |
-6 | 2-25 | [Supervised Learning in R: Classification: CH1](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 2-18 | Lab 4-5 |
+6 | 2-18 | [Supervised Learning in R: Classification: CH1](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 2-25 | Lab 4-5 |
