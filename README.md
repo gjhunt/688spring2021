@@ -23,6 +23,7 @@ lecture number | date to watch | lecture name | written notes (.pdf) | video |
 7 | 2-18 | minimum Risk regression and classification | [lecture 7](lns/lec7.pdf) | [lec7](https://youtu.be/XwAbYjpTi7U) |
 8 | 2-23 | classification | [lecture 8](lns/lec8.pdf) | [lec8](https://youtu.be/1XEeHFv_joM) |
 9 | 2-25 | linear classifiers | [lecture 9](lns/lec9.pdf) | [lec9](https://youtu.be/yMJpAcS5sg4) |
+10 | 3-2 | LDA and QDA | [lecture 10](lns/lec10.pdf) | [lec10](https://youtu.be/9p5krvwZmDM) |
 
 
 ## labs and videos
@@ -38,6 +39,7 @@ lab number | date to watch | lab name | files | video |
 7 | 2-18 | KNN classification | [.ipynb](labs/7/lab7.ipynb) [.Rmd](labs/7/lab7.Rmd) [.R](labs/7/lab7.R) | [lab 7](https://youtu.be/qdZ7qYhkbPY) |
 8 | 2-23 | classification | [.ipynb](labs/8/lab8.ipynb) [.Rmd](labs/8/lab8.Rmd) [.R](labs/8/lab8.R) | [lab 8](https://youtu.be/Ro5E56_Mr-s) |
 9 | 2-25 | lda | [.ipynb](labs/9/lab9.ipynb) [.Rmd](labs/9/lab9.Rmd) [.R](labs/9/lab9.R) | [lab 9](https://youtu.be/IYl_VhBXqxk) |
+10 | 3-2 | linear classifiers/lda/qda | [.ipynb](labs/10/lab10.ipynb) [.Rmd](labs/10/lab10.Rmd) [.R](labs/10/lab10.R) | [lab 10](https://youtu.be/K1RtflPVZZ4) |
 
 
 ## problem sets
@@ -45,7 +47,8 @@ lab number | date to watch | lab name | files | video |
 date posted | link | due | corresponding lectures |
 --- | --- | --- | --- |
 1-28 | [ps1](ps/ps1.pdf) | 2-11 | 1 |
-2-11 | [ps2](ps/ps2.pdf) | 2-25 | 2-5 | 
+2-11 | [ps2](ps/ps2.pdf) | 2-25 | 2-5 |
+3-2 | [ps3](ps/ps3.pdf) | 3-16 | 7-11 | 
 
 
 ## datacamp
