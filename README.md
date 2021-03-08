@@ -67,4 +67,4 @@ assignment number | date posted | link | due | corresponding lectures or labs |
 4 | 2-11 | [Supervised Learning in R: Regression CH2](https://learn.datacamp.com/courses/supervised-learning-in-r-regression) | 2-18 | Lab 4-5 |
 5 | 2-11 | [Machine Learning with caret in R: CH1](https://learn.datacamp.com/courses/machine-learning-with-caret-in-r) | 2-25 | Lab 7 |
 6 | 2-18 | [Supervised Learning in R: Classification: CH1](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 2-25 | Lab 7-8 |
-6 | 3-9 | [Supervised Learning in R: Classification: CH3](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 3-16 | Lab 9-12 |
+7 | 3-9 | [Supervised Learning in R: Classification: CH3](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 3-16 | Lab 9-12 |
