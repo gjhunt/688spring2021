@@ -1,0 +1,219 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 12 - Variable Selection
+## Lecture 
+
+```{r}
+library('MASS')
+library('leaps')
+```
+
+```{r}
+data(mtcars)
+```
+
+```{r}
+head(mtcars)
+```
+
+```{r}
+?mtcars
+```
+
+```{r}
+?regsubsets
+```
+
+```{r}
+dim(mtcars)
+```
+
+```{r}
+ss_mods = regsubsets(mpg~.,data=mtcars,method="forward",nvmax=10)
+```
+
+```{r}
+summary(ss_mods)
+```
+
+```{r}
+ss_mods = regsubsets(mpg~.,data=mtcars,method="backward",nvmax=10)
+```
+
+```{r}
+summary(ss_mods)
+```
+
+```{r}
+ss_mods = regsubsets(mpg~.,data=mtcars,method="exhaustive",nvmax=10)
+```
+
+```{r}
+summary(ss_mods)
+```
+
+```{r}
+smry = summary(ss_mods)
+```
+
+```{r}
+names(smry)
+```
+
+```{r}
+smry$which
+```
+
+```{r}
+smry$rsq
+```
+
+```{r}
+plot(smry$rsq)
+```
+
+```{r}
+plot(smry$rss)
+```
+
+```{r}
+smry$adjr2
+```
+
+```{r}
+plot(smry$adjr2)
+```
+
+```{r}
+ii = which.max(smry$adjr2)
+ii
+```
+
+```{r}
+best_vars = colnames(smry$which)[smry$which[ii,]][-1]
+best_vars
+```
+
+```{r}
+fmla = paste0("mpg~",paste(best_vars,collapse="+"))
+fmla
+```
+
+```{r}
+best_mod = lm(as.formula(fmla),data=mtcars)
+```
+
+```{r}
+plot(mtcars$mpg,predict(best_mod))
+abline(coef=c(0,1))
+```
+
+### Ted Talks Datset
+
+```{r}
+ted = readRDS('data/ted/ted_talks.rds')
+```
+
+```{r}
+dim(ted)
+```
+
+```{r}
+head(ted)
+```
+
+```{r}
+head(colnames(ted))
+```
+
+```{r}
+hist(ted$views)
+```
+
+```{r}
+hist(log(ted$views))
+```
+
+```{r}
+tdm = ted[,grep("word",colnames(ted),value=TRUE)]
+df = data.frame(views=ted$views,tdm)
+df = head(df,n=100)
+```
+
+```{r}
+head(df)
+```
+
+```{r}
+dim(df)
+```
+
+```{r}
+lm(views~.,data=df)
+```
+
+```{r}
+?kappa
+```
+
+```{r}
+X = model.matrix(lm(views~.,data=df))
+dim(X)
+```
+
+```{r}
+xtx = t(X)%*%X
+dim(xtx)
+```
+
+```{r}
+kappa(xtx)
+```
+
+```{r}
+solve(xtx)
+```
+
+```{r}
+ted_mods = regsubsets(log(views)~.,data=df,method="forward",nvmax=100)
+```
+
+```{r}
+ar2 = summary(ted_mods)$adjr2
+```
+
+```{r}
+plot(ar2,type='l',ylab='r2_adj',xlab='num vars')
+```
+
+```{r}
+which.max(ar2)
+```
+
+```{r}
+fmla = paste0(colnames(df)[summary(ted_mods)$which[43,]][-1],collapse="+")
+fmla = paste0("log(views)~",fmla)
+fmla
+```
+
+```{r}
+best_mod = lm(fmla,data=df)
+```
+
+```{r}
+plot(log(df$views),predict(best_mod))
+abline(coef=c(0,1))
+```

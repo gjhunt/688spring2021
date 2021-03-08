@@ -24,6 +24,8 @@ lecture number | date to watch | lecture name | written notes (.pdf) | video |
 8 | 2-23 | classification | [lecture 8](lns/lec8.pdf) | [lec8](https://youtu.be/1XEeHFv_joM) |
 9 | 2-25 | linear classifiers | [lecture 9](lns/lec9.pdf) | [lec9](https://youtu.be/yMJpAcS5sg4) |
 10 | 3-2 | LDA and QDA | [lecture 10](lns/lec10.pdf) | [lec10](https://youtu.be/9p5krvwZmDM) |
+11 | 3-9 | logistic regression | [lecture 11](lns/lec11.pdf) | [lec11](https://youtu.be/XiXqudns6jI) |
+12 | 3-11 | variable selection | [lecture 12](lns/lec12.pdf) | [lec12](https://youtu.be/5vMYJ5muZoQ) |
 
 
 ## labs and videos
@@ -40,6 +42,8 @@ lab number | date to watch | lab name | files | video |
 8 | 2-23 | classification | [.ipynb](labs/8/lab8.ipynb) [.Rmd](labs/8/lab8.Rmd) [.R](labs/8/lab8.R) | [lab 8](https://youtu.be/Ro5E56_Mr-s) |
 9 | 2-25 | lda | [.ipynb](labs/9/lab9.ipynb) [.Rmd](labs/9/lab9.Rmd) [.R](labs/9/lab9.R) | [lab 9](https://youtu.be/IYl_VhBXqxk) |
 10 | 3-2 | linear classifiers/lda/qda | [.ipynb](labs/10/lab10.ipynb) [.Rmd](labs/10/lab10.Rmd) [.R](labs/10/lab10.R) | [lab 10](https://youtu.be/K1RtflPVZZ4) |
+11 | 3-9 | logistic regression | [.ipynb](labs/11/lab11.ipynb) [.Rmd](labs/11/lab11.Rmd) [.R](labs/11/lab11.r) | [lab 11](https://youtu.be/9V7Ebsm2UHU) |
+12 | 3-11 | variable selection | [.ipynb](labs/12/lab12.ipynb) [.Rmd](labs/12/lab12.Rmd) [.R](labs/12/lab12.R) | [lab 12](https://youtu.be/IMex55ASbT0) |
 
 
 ## problem sets
@@ -62,4 +66,5 @@ assignment number | date posted | link | due | corresponding lectures or labs |
 3 | 2-4 | [Supervised Learning in R: Regression CH3](https://learn.datacamp.com/courses/supervised-learning-in-r-regression) | 2-11 | Lab 3 |
 4 | 2-11 | [Supervised Learning in R: Regression CH2](https://learn.datacamp.com/courses/supervised-learning-in-r-regression) | 2-18 | Lab 4-5 |
 5 | 2-11 | [Machine Learning with caret in R: CH1](https://learn.datacamp.com/courses/machine-learning-with-caret-in-r) | 2-25 | Lab 7 |
-6 | 2-18 | [Supervised Learning in R: Classification: CH1](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 2-25 | Lab 4-5 |
+6 | 2-18 | [Supervised Learning in R: Classification: CH1](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 2-25 | Lab 7-8 |
+6 | 3-9 | [Supervised Learning in R: Classification: CH2](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 3-16 | Lab 9-12 |
