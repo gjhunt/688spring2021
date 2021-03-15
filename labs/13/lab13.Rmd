@@ -1,0 +1,148 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 13 - Ridge Regression
+# Lecture 13
+
+```{r}
+ted = readRDS('data/ted/ted_talks.rds')
+```
+
+```{r}
+dim(ted)
+```
+
+```{r}
+head(ted)
+```
+
+```{r}
+tdm = ted[,grep("word",colnames(ted),value=TRUE)]
+```
+
+```{r}
+head(colnames(tdm))
+```
+
+```{r}
+df = data.frame(views=ted$views,tdm)
+head(df)
+```
+
+```{r}
+mod = lm(log(views)~.,data=df)
+beta_hat = mod$coef
+```
+
+```{r}
+sum(!is.finite(beta_hat))
+```
+
+```{r}
+qr(tdm)$rank
+```
+
+```{r}
+dim(tdm)
+```
+
+```{r}
+tail(svd(tdm)$d)
+```
+
+```{r}
+X = as.matrix(tdm)
+xtx=t(X)%*%X
+kappa(xtx)
+```
+
+```{r}
+max(eigen(xtx)$values)/abs(min(eigen(xtx)$values))
+```
+
+# Ridge Regression Solution!
+
+```{r}
+install.packages('glmnet')
+```
+
+```{r}
+library('glmnet')
+```
+
+```{r jupyter={'outputs_hidden': True}}
+?glmnet
+```
+
+```{r}
+dim(X)
+```
+
+```{r}
+y = ted$views
+```
+
+```{r}
+fit.ridge = glmnet(x=X,y=log(y),family="gaussian",alpha=0)
+```
+
+```{r jupyter={'outputs_hidden': True}}
+fit.ridge
+```
+
+```{r}
+dim(fit.ridge$beta)
+```
+
+```{r}
+length(fit.ridge$lambda)
+```
+
+```{r}
+dim(X)
+```
+
+```{r}
+matplot(log(fit.ridge$lambda),t(fit.ridge$beta),type='l',xlab="log(lam)",ylab="beta")
+```
+
+```{r}
+lam_seq = 10^seq(-10,10,length.out=100)
+head(lam_seq)
+```
+
+```{r}
+fit.ridge = glmnet(x=X,y=log(y),family="gaussian",alpha=0,lambda=lam_seq)
+```
+
+```{r}
+matplot(log(fit.ridge$lambda),t(fit.ridge$beta),type='l',xlab="log(lam)",ylab="beta")
+```
+
+```{r}
+cv.ridge = cv.glmnet(x=X,y=log(y),family="gaussian",alpha=0,lambda=lam_seq)
+```
+
+```{r}
+plot(cv.ridge)
+```
+
+```{r}
+cv.ridge$lambda.min
+```
+
+```{r}
+best.ridge = glmnet(x=X,y=log(y),family="gaussian",alpha=0,lambda=cv.ridge$lambda.min)
+```
