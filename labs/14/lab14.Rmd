@@ -1,0 +1,123 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 14 - LASSO
+## Lecture 14
+
+```{r}
+ted = readRDS('data/ted/ted_talks.rds')
+tdm = ted[,grep("word",colnames(ted),value=TRUE)]
+df = data.frame(views=ted$views,tdm)
+```
+
+```{r}
+library('glmnet')
+```
+
+```{r}
+#install.packages('glmnetUtils')
+```
+
+```{r}
+library('glmnetUtils')
+```
+
+```{r jupyter={'outputs_hidden': True}}
+?glmnet
+```
+
+```{r}
+lasso.mod = glmnet(log(views)~.,family="gaussian",alpha=1,data=df)
+```
+
+```{r}
+length(lasso.mod$lambda)
+```
+
+```{r jupyter={'outputs_hidden': True}}
+lasso.mod$beta
+```
+
+```{r jupyter={'outputs_hidden': True}}
+as.matrix(lasso.mod$beta)
+```
+
+```{r}
+matplot(log(lasso.mod$lambda),t(as.matrix(lasso.mod$beta)),type='l',xlab="log(lam)",ylab="beta")
+```
+
+```{r}
+ridge.mod = glmnet(log(views)~.,family="gaussian",alpha=0,data=df)
+```
+
+```{r}
+matplot(log(ridge.mod$lambda),t(as.matrix(ridge.mod$beta)),type='l',xlab="log(lam)",ylab="beta")
+```
+
+```{r jupyter={'outputs_hidden': True}}
+lamb_seq=10^seq(-5,0,length.out=100)
+lamb_seq
+```
+
+```{r}
+lasso.cv = cv.glmnet(log(views)~.,family="gaussian",alpha=1,data=df,lambda=lamb_seq)
+```
+
+```{r}
+plot(lasso.cv)
+```
+
+```{r}
+best_lam = lasso.cv$lambda.min
+best_lam
+```
+
+```{r}
+best.lasso = glmnet(log(views)~.,family="gaussian",alpha=1,data=df,lambda=best_lam)
+```
+
+```{r}
+dim(best.lasso$beta)
+```
+
+```{r jupyter={'outputs_hidden': True}}
+best.lasso$beta
+```
+
+```{r}
+sum(best.lasso$beta!=0)
+```
+
+```{r}
+plot(log(df$views),predict(best.lasso,newdata=df))
+```
+
+# elastic net
+
+```{r}
+en.mod = glmnet(log(views)~.,family="gaussian",alpha=.5,data=df)
+```
+
+```{r}
+matplot(log(en.mod$lambda),t(as.matrix(en.mod$beta)),type='l',xlab="log(lam)",ylab="beta")
+```
+
+```{r}
+en.mod$beta
+```
+
+```{r}
+
+```

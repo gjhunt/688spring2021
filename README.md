@@ -27,6 +27,7 @@ lecture number | date to watch | lecture name | written notes (.pdf) | video |
 11 | 3-9 | logistic regression | [lecture 11](lns/lec11.pdf) | [lec11](https://youtu.be/XiXqudns6jI) |
 12 | 3-11 | variable selection | [lecture 12](lns/lec12.pdf) | [lec12](https://youtu.be/5vMYJ5muZoQ) |
 13 | 3-16 | ridge regression | [lecture 13](lns/lec13.pdf) | [lec13](https://youtu.be/WYIcHJxdl9Y) |
+14 | 3-25 | LASSO | [lecture 14](lns/lec14.pdf) | [lec14](https://youtu.be/ep_dOipyDxU) |
 
 
 ## labs and videos
@@ -46,6 +47,7 @@ lab number | date to watch | lab name | files | video |
 11 | 3-9 | logistic regression | [.ipynb](labs/11/lab11.ipynb) [.Rmd](labs/11/lab11.Rmd) [.R](labs/11/lab11.r) | [lab 11](https://youtu.be/9V7Ebsm2UHU) |
 12 | 3-11 | variable selection | [.ipynb](labs/12/lab12.ipynb) [.Rmd](labs/12/lab12.Rmd) [.R](labs/12/lab12.R) | [lab 12](https://youtu.be/IMex55ASbT0) |
 13 | 3-16 | ridge regression | [.ipynb](labs/13/lab13.ipynb) [.Rmd](labs/13/lab13.Rmd) [.R](labs/13/lab13.R) | [lab 13](https://youtu.be/F45-9Z8evzw) |
+14 | 3-25 | LASSO | [.ipynb](labs/14/lab14.ipynb) [.Rmd](labs/14/lab14.Rmd) [.R](labs/14/lab14.R) | [lab 14](https://youtu.be/BoJkGPQMTUI) |
 
 
 ## problem sets
