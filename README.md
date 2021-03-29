@@ -62,7 +62,7 @@ date posted | link | due | corresponding lectures |
 2-11 | [ps2](ps/ps2.pdf) | 2-25 | 2-5 |
 3-2 | [ps3](ps/ps3.pdf) | 3-16 | 7-11 |
 3-30 | [ps4](ps/ps4.pdf) | 4-15 | 12-16 |
-3-30 | [final project](ps/project.pdf) | 4-6 |  | 
+3-30 | [final project](ps/project.pdf) | 5-6 |  | 
 
 
 ## datacamp
