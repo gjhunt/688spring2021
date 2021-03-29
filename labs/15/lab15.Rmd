@@ -1,0 +1,185 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 15 - PCA
+## Lecture 15
+
+```{r}
+pokemon = read.csv('data/poke/pokemon.csv')
+```
+
+```{r}
+head(pokemon)
+```
+
+```{r}
+colnames(pokemon)
+```
+
+```{r}
+head(pokemon$name)
+```
+
+```{r}
+dim(pokemon)
+```
+
+```{r}
+which_numeric = sapply(1:ncol(pokemon),function(i)is.numeric(pokemon[,i])&&all(is.finite(pokemon[,i])))
+```
+
+```{r}
+head(which_numeric)
+```
+
+```{r}
+sum(which_numeric)
+```
+
+```{r}
+poke = pokemon[,which_numeric]
+```
+
+```{r}
+head(poke)
+```
+
+## Method 1: prcomp in MASS
+
+```{r}
+library('MASS')
+```
+
+```{r}
+?prcomp
+```
+
+```{r}
+pc.out = prcomp(x=poke,center=TRUE)
+```
+
+```{r}
+pc.out
+```
+
+```{r}
+W = pc.out$rotation
+```
+
+```{r}
+dim(W)
+```
+
+```{r}
+plot(W[,1])
+```
+
+```{r}
+which.max(W[,1])
+```
+
+```{r}
+poke$base_happiness
+```
+
+```{r}
+pc.out = prcomp(x=poke,center=TRUE,scale=TRUE)
+```
+
+```{r}
+W = pc.out$rotation
+```
+
+```{r}
+plot(W[,1])
+```
+
+```{r}
+boxplot(poke)
+```
+
+```{r}
+which.max(colMeans(poke))
+```
+
+```{r}
+vars = pc.out$sdev^2
+```
+
+```{r}
+plot(vars/sum(vars))
+```
+
+```{r}
+plot(cumsum(vars/sum(vars)))
+```
+
+```{r}
+X = scale(poke,center=TRUE,scale=TRUE)
+```
+
+```{r}
+Z = as.matrix(X) %*% W[,1:10]
+```
+
+```{r}
+head(Z)
+```
+
+```{r}
+summary(pc.out)
+```
+
+```{r}
+plot(Z[,1:2])
+```
+
+```{r}
+plot(Z[,2:3])
+```
+
+## Method 2: SVD
+
+```{r}
+svdx = svd(X)
+```
+
+```{r}
+W2 = svdx$v[,1:10]
+```
+
+```{r}
+Z2 = X%*%W2
+```
+
+```{r}
+max(Z-Z2)
+```
+
+```{r}
+plot(Z[,1:2])
+```
+
+```{r}
+vars = svdx$d^2
+```
+
+```{r}
+plot(vars/nrow(X))
+```
+
+```{r}
+
+```

@@ -1,0 +1,145 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 16
+## Lecture 16
+
+```{r}
+d = read.csv('data/tcga/smaller.csv',row.names=1)
+```
+
+```{r}
+dim(d)
+```
+
+```{r}
+head(d)
+```
+
+```{r}
+d = as.matrix(d)
+```
+
+```{r}
+w0 = which(apply(d,2,sd)==0)
+```
+
+```{r}
+d = d[,-w0]
+dim(d)
+```
+
+```{r}
+y = d[,5]
+X = d[,-5]
+```
+
+```{r}
+sigma = apply(X,2,sd)
+mus = colMeans(X)
+X = scale(X,scale=TRUE,center=TRUE)
+head(X)
+```
+
+```{r}
+sum(!is.finite(X))
+```
+
+```{r}
+lm(y~X)
+```
+
+```{r}
+library('pls')
+```
+
+```{r}
+?pcr
+```
+
+```{r}
+pcrmod = pcr(y~X,ncomp=10)
+```
+
+```{r}
+summary(pcrmod)
+```
+
+```{r}
+pcr_preds = predict(pcrmod,ncomp=10)
+```
+
+```{r}
+V = svd(X,nv=10)$v
+```
+
+```{r}
+XV = X%*%V
+```
+
+```{r}
+dim(XV)
+```
+
+```{r}
+hm = lm(y~XV)
+```
+
+```{r}
+summary(hm)
+```
+
+```{r}
+head(coef(hm))
+```
+
+```{r}
+hm_preds = predict(hm)
+```
+
+```{r}
+head(hm_preds)
+```
+
+```{r}
+plot(pcr_preds,hm_preds)
+```
+
+```{r}
+beta_pcr = V%*%array(coef(hm)[-1],c(10,1))
+```
+
+```{r}
+head(beta_pcr)
+```
+
+```{r}
+plot(predict(pcrmod,ncomp=10),mean(y)+X%*%beta_pcr)
+```
+
+```{r}
+newx = rnorm(ncol(X))
+newx = data.frame(t(newx))
+colnames(newx) = colnames(X)
+head(newx)
+```
+
+```{r}
+predict(pcrmod,as.matrix(newx),ncomp=10)
+```
+
+```{r}
+as.numeric(mean(y)+as.matrix(newx)%*%beta_pcr)
+```
