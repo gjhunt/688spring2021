@@ -1,0 +1,77 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    main_language: python
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 17 - K-means clustering
+## Lecture 17 
+
+```{python}
+data = iris
+head(data)
+```
+
+```{python}
+data = data[-which(colnames(data)=="Species")]
+head(data)
+```
+
+```{python}
+# ?kmeans
+```
+
+```{python}
+km.out = kmeans(data,centers=3,nstart=1,algorithm="Lloyd")
+```
+
+```{python}
+km.out
+```
+
+```{python}
+km.out$cluster
+```
+
+```{python}
+dim(data)
+```
+
+```{python}
+plot(svd(scale(data))$u[,1:2])
+```
+
+```{python}
+plot(svd(scale(data))$u[,1:2],xlab="PC1",ylab="PC2",col=km.out$cluster)
+```
+
+```{python}
+plot(svd(scale(data))$u[,1:2],xlab="PC1",ylab="PC2",col=km.out$cluster)
+text(svd(scale(data))$u[,1:2],col=km.out$cluster,label=iris$Species)
+```
+
+```{python}
+km.out = kmeans(data,centers=2,nstart=1,algorithm="Lloyd")
+plot(svd(scale(data))$u[,1:2],xlab="PC1",ylab="PC2",col=km.out$cluster)
+text(svd(scale(data))$u[,1:2],col=km.out$cluster,label=iris$Species)
+```
+
+```{python}
+km.out = kmeans(data,centers=5,nstart=10)
+plot(svd(scale(data))$u[,1:2],xlab="PC1",ylab="PC2",col=km.out$cluster)
+text(svd(scale(data))$u[,1:2],col=km.out$cluster,label=iris$Species)
+```
+
+```{python}
+
+```

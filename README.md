@@ -30,6 +30,7 @@ lecture number | date to watch | lecture name | written notes (.pdf) | video |
 14 | 3-25 | LASSO | [lecture 14](lns/lec14.pdf) | [lec14](https://youtu.be/ep_dOipyDxU) |
 15 | 3-30 | PCA | [lecture 15](lns/lec15.pdf) | [lec15](https://youtu.be/L3ny0XX9dbg) |
 16 | 4-1 | PCR | [lecture 16](lns/lec16.pdf) | [lec16](https://youtu.be/KyW90nqxCHA) |
+17 | 4-8 | clustering | [lecture 17](lns/lec17.pdf) | [lec17](https://youtu.be/uQggzHF2bc4) |
 
 
 ## labs and videos
@@ -52,6 +53,7 @@ lab number | date to watch | lab name | files | video |
 14 | 3-25 | LASSO | [.ipynb](labs/14/lab14.ipynb) [.Rmd](labs/14/lab14.Rmd) [.R](labs/14/lab14.R) | [lab 14](https://youtu.be/BoJkGPQMTUI) |
 15 | 3-30 | PCA | [.ipynb](labs/15/lab15.ipynb) [.Rmd](labs/15/lab15.Rmd) [.R](labs/15/lab15.R) | [lab 15](https://youtu.be/5nOrR0gYA0g) |
 16 | 4-1 | PCR | [.ipynb](labs/16/lab16.ipynb) [.Rmd](labs/16/lab16.Rmd) [.R](labs/16/lab16.R) | [lab 16](https://youtu.be/LuUNv1Dtcac) |
+17 | 4-8 | clustering | [.ipynb](labs/17/lab17.ipynb) [.Rmd](labs/17/lab17.Rmd) [.R](labs/17/lab17.R) | [lab 17](https://youtu.be/7yFhLk9Q9ig) |
 
 
 ## problem sets
