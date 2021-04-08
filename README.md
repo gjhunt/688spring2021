@@ -81,3 +81,4 @@ assignment number | date posted | link | due | corresponding lectures or labs |
 6 | 2-18 | [Supervised Learning in R: Classification: CH1](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 2-25 | Lab 7-8 |
 7 | 3-9 | [Supervised Learning in R: Classification: CH3](https://campus.datacamp.com/courses/supervised-learning-in-r-classification/) | 3-16 | Lab 9-12 |
 8 | 3-30 | [Unsupervised Learning in R: CH3](https://learn.datacamp.com/courses/unsupervised-learning-in-r) | 4-6 | Lab 15-16 |
+9 | 4-8 | [Unsupervised Learning in R: CH1](https://learn.datacamp.com/courses/unsupervised-learning-in-r) | 4-15 | Lab 17|
