@@ -1,0 +1,133 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: ''
+    name: ''
+---
+
+# Lab 19 - Decision Trees
+## Lecture 19
+
+```{python}
+install.packages('ISLR')
+```
+
+```{python}
+library('ISLR')
+data(Carseats)
+```
+
+```{python}
+head(Carseats)
+```
+
+```{python}
+library('rpart')
+```
+
+```{python}
+# ?rpart
+```
+
+```{python}
+set.seed(128321093)
+ss_train = sample(1:nrow(Carseats),floor(nrow(Carseats)/2))
+dim(Carseats)
+length(ss_train)
+```
+
+```{python}
+train = Carseats[ss_train,]
+validation = Carseats[-ss_train,]
+```
+
+```{python}
+dim(train)
+dim(validation)
+```
+
+```{python}
+model = rpart(Sales~.,data=train,method="anova",
+    control = rpart.control(maxdepth=30,minsplit=2,xval=10))
+```
+
+```{python}
+plot(model)
+text(model)
+```
+
+```{python}
+ct = model$cptable
+ct
+```
+
+```{python}
+plot(log(ct[,"CP"]),ct[,"xerror"])
+```
+
+```{python}
+opt_alpha = ct[which.min(ct[,"xerror"]),"CP"]
+opt_alpha
+```
+
+```{python}
+plot(log(ct[,"CP"]),ct[,"xerror"])
+abline(v=log(opt_alpha))
+```
+
+```{python}
+pruned = prune(model,cp=opt_alpha)
+```
+
+```{python}
+pruned
+```
+
+```{python}
+plot(pruned)
+text(pruned)
+```
+
+```{python}
+RSS_train_full = sum((predict(model,train)-train$Sales)^2)
+RSS_train_pruned = sum((predict(pruned,train)-train$Sales)^2)
+RSS_train_full
+RSS_train_pruned
+```
+
+```{python}
+RSS_val_full = sum((predict(model,validation)-train$Sales)^2)
+RSS_val_pruned = sum((predict(pruned,validation)-train$Sales)^2)
+RSS_val_full
+RSS_val_pruned
+```
+
+### Classification
+
+```{python}
+library('MASS')
+```
+
+```{python}
+head(iris)
+```
+
+```{python}
+classmod = rpart(Species~.,data=iris,method="class")
+```
+
+```{python}
+plot(classmod)
+text(classmod)
+```
+
+```{python}
+
+```

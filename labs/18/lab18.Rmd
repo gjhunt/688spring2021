@@ -1,0 +1,123 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 18 - Hierarchical Clustering
+## Lecture 18 
+
+```{r}
+data = iris
+data = data[,-which(colnames(data)=="Species")]
+```
+
+```{r}
+head(data)
+```
+
+```{r}
+?hclust
+```
+
+```{r}
+?dist
+```
+
+```{r}
+D = dist(as.matrix(data))
+```
+
+```{r}
+class(D)
+```
+
+```{r}
+D_mat = as.matrix(D)
+dim(D_mat)
+```
+
+```{r}
+D_mat[1:5,1:5]
+```
+
+```{r}
+all(D - t(D) == 0)
+```
+
+```{r}
+hc = hclust(D,method="average")
+```
+
+```{r}
+plot(hc)
+```
+
+```{r}
+hc = hclust(D,method="complete")
+plot(hc)
+```
+
+```{r}
+hc = hclust(D,method="single")
+plot(hc)
+```
+
+```{r}
+?cutree
+```
+
+```{r}
+hc.cut = cutree(hc,h=.5)
+```
+
+```{r}
+hc.cut
+```
+
+```{r}
+table(hc.cut)
+```
+
+```{r}
+plot(hc);abline(h=.5,col='red')
+```
+
+```{r}
+cutree(hc,h=1)
+plot(hc);abline(h=1,col='red')
+```
+
+```{r}
+clusts = cutree(hc,k=3)
+clusts
+```
+
+```{r}
+plot(svd(scale(data))$u[,1:2],col=clusts)
+```
+
+```{r}
+hc = hclust(D,method="average")
+clusts = cutree(hc,k=3)
+plot(svd(scale(data))$u[,1:2],col=clusts)
+text(svd(scale(data))$u[,1:2],label=iris$Species,col=clusts)
+```
+
+```{r}
+plot(svd(scale(data))$u[,2:3],col=clusts)
+text(svd(scale(data))$u[,2:3],label=iris$Species,col=clusts)
+```
+
+```{r}
+
+```
