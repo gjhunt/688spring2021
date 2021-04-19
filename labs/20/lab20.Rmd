@@ -1,0 +1,121 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 20 - Random Forests
+## Lecture 20 
+
+```{r}
+library('bayesreg')
+```
+
+```{r}
+data(spambase)
+```
+
+```{r}
+spambase
+```
+
+```{r}
+?spambase
+```
+
+```{r}
+install.packages('randomForest')
+```
+
+```{r}
+library('randomForest')
+```
+
+```{r}
+?randomForest
+```
+
+```{r}
+dim(spambase)
+```
+
+```{r}
+sqrt(57)
+```
+
+```{r}
+colnames(spambase)[50:55] <- paste0('char.freq.',c('semic','paren','bracket','exclaim','dollar','pound'))
+```
+
+```{r}
+spambase$is.spam <- factor(spambase$is.spam)
+```
+
+```{r}
+spambase$is.spam
+```
+
+```{r}
+rf = randomForest(is.spam~.,data=spambase,ntree=100,mtry=floor(sqrt(57)))
+```
+
+```{r}
+print(rf)
+```
+
+```{r}
+library('rpart')
+```
+
+```{r}
+ctree = rpart(is.spam~.,data=spambase)
+```
+
+```{r}
+mean(spambase$is.spam!=predict(ctree,type='class'))
+```
+
+```{r}
+rf = randomForest(is.spam~.,data=spambase,ntree=500,mtry=floor(sqrt(57)))
+```
+
+```{r}
+print(rf)
+```
+
+```{r}
+names(rf)
+```
+
+```{r}
+plot(rf)
+```
+
+```{r}
+rf$confusion
+```
+
+```{r}
+matplot(rf$err.rate)
+```
+
+```{r}
+rf$importance
+```
+
+```{r}
+rf$importance[order(rf$importance,decreasing=TRUE),]
+```
+
+```{r}
+
+```
