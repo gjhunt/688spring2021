@@ -35,6 +35,8 @@ lecture number | date to watch | lecture name | written notes (.pdf) | video |
 19 | 4-15 | trees | [lecture 19](lns/lec19.pdf) | [lec19](https://youtu.be/KNRX3pPUIzo) |
 20 | 4-20 | bagging and random forests | [lecture 20](lns/lec20.pdf) | [lec20](https://youtu.be/tzBXLDSvJYE) |
 21 | 4-22 | boosting | [lecture 21](lns/lec21.pdf) | [lec21](https://youtu.be/9pbKns5oUF0) |
+22 | 4-27 | nonparametric regression | [lecture 22](lns/lec22.pdf) | [lec22](https://youtu.be/PmmkXHzcMl8) |
+23 | 4-29 | kpca | [lecture 23](lns/lec23.pdf) | [lec23](https://youtu.be/9Pa-VvCEU5o) |
 
 
 ## labs and videos
@@ -62,6 +64,8 @@ lab number | date to watch | lab name | files | video |
 19 | 4-15 | trees | [.ipynb](labs/19/lab19.ipynb) [.Rmd](labs/19/lab19.Rmd) [.R](labs/19/lab19.R) | [lab 19](https://youtu.be/9VjR0cqsM5Q) |
 20 | 4-20 | bagging and RFs | [.ipynb](labs/20/lab20.ipynb) [.Rmd](labs/20/lab20.Rmd) [.R](labs/20/lab20.R) | [lab 20](https://youtu.be/f7izDvI7Muk) |
 21 | 4-22 | boosting | [.ipynb](labs/21/lab21.ipynb) [.Rmd](labs/21/lab21.Rmd) [.R](labs/21/lab21.R) | [lab 21](https://youtu.be/JeEWOEtCjqU) |
+20 | 4-27 | nonparametric regression | [.ipynb](labs/22/lab22.ipynb) [.Rmd](labs/22/lab22.Rmd) [.R](labs/22/lab22.R) | [lab 22](https://youtu.be/4Veld3NQfco) |
+21 | 4-29 | kpca | [.ipynb](labs/23/lab23.ipynb) [.Rmd](labs/23/lab23.Rmd) [.R](labs/23/lab23.R) | [lab 23](https://youtu.be/ZCDq4Q4ZkK0) |
 
 
 ## problem sets

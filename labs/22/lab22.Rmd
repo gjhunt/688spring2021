@@ -1,0 +1,146 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.9.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+# Lab 22 - Nonparametric Regression
+## Lecture 22 
+
+```{r}
+x = sort(runif(200,-4*pi,4*pi))
+y = sin(x)+rnorm(200,0,.25)
+plot(x,y)
+```
+
+```{r}
+mod = lm(y~x)
+plot(x,y)
+abline(coef=coef(mod),col='red')
+```
+
+```{r}
+mod = lm(y~x+I(x^2)+I(x^3)+I(x^4)+I(x^5)+I(x^6)+I(x^7)+I(x^8)+I(x^9)+I(x^10))
+dim(model.matrix(mod))
+plot(x,y)
+lines(x,predict(mod,data.frame(x)),col='red')
+```
+
+```{r}
+library('locpol')
+```
+
+```{r jupyter={'outputs_hidden': True}}
+?locPolSmootherC
+```
+
+```{r jupyter={'outputs_hidden': True}}
+?Kernels
+```
+
+$$gaussK(x) = \exp(-x^2/\gamma)$$
+
+```{r}
+smoothed = locPolSmootherC(x=x,y=y,xeval=x,deg=0,kernel=gaussK,bw=.1)
+```
+
+```{r}
+head(smoothed)
+```
+
+```{r}
+smoothed = locPolSmootherC(x=x,y=y,xeval=x,deg=0,kernel=gaussK,bw=1)
+plot(x,y)
+lines(x,smoothed$beta0,col='red')
+```
+
+```{r}
+smoothed = locPolSmootherC(x=x,y=y,xeval=x,deg=0,kernel=gaussK,bw=.01)
+plot(x,y)
+lines(x,smoothed$beta0,col='red')
+```
+
+```{r}
+smoothed = locPolSmootherC(x=x,y=y,xeval=x,deg=0,kernel=gaussK,bw=.35)
+plot(x,y)
+lines(x,smoothed$beta0,col='red')
+```
+
+1st degree local polynomial
+
+```{r}
+smoothed_poly = locPolSmootherC(x=x,y=y,xeval=x,deg=1,kernel=gaussK,bw=.5)
+smoothed = locPolSmootherC(x=x,y=y,xeval=x,deg=0,kernel=gaussK,bw=.5)
+plot(x,y)
+lines(x,smoothed$beta0,col='red')
+lines(x,smoothed_poly$beta0,col='blue')
+```
+
+```{r}
+smoothed_poly = locPolSmootherC(x=x,y=y,xeval=x,deg=9,kernel=gaussK,bw=1.5)
+smoothed = locPolSmootherC(x=x,y=y,xeval=x,deg=0,kernel=gaussK,bw=.5)
+plot(x,y)
+lines(x,smoothed$beta0,col='red')
+lines(x,smoothed_poly$beta0,col='blue')
+```
+
+```{r jupyter={'outputs_hidden': True}}
+?regCVBwSelC
+```
+
+```{r}
+best_bw = regCVBwSelC(x,y,deg=5,kernel=gaussK)
+```
+
+```{r}
+best_bw
+```
+
+```{r}
+smoothed = locPolSmootherC(x=x,y=y,xeval=x,deg=5,kernel=gaussK,bw=best_bw)
+plot(x,y)
+lines(x,smoothed$beta0,col='red')
+```
+
+## splines 
+
+```{r}
+library('splines')
+```
+
+```{r jupyter={'outputs_hidden': True}}
+?bs
+```
+
+```{r}
+mod = lm(y~bs(x,df=10,intercept=TRUE))
+plot(x,y)
+lines(x,predict(mod,data.frame(x)),col='red')
+```
+
+```{r}
+mod = lm(y~bs(x,df=20,intercept=TRUE))
+plot(x,y)
+lines(x,predict(mod,data.frame(x)),col='red')
+```
+
+```{r}
+summary(mod)
+```
+
+```{r}
+dim(model.matrix(mod))
+```
+
+```{r}
+
+```
